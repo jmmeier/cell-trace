@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>JEM Streamlined Cell Tracing</title>	
+	<title>JEM Streamlined Cell Tracing</title>		
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -31,8 +31,6 @@
 	          <a class="navbar-brand" style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"  href="/">JEM Tracer I</a>
 	        </div>
 
-	        
-
 			<div class="collapse navbar-collapse pull-right">
 	          <ul class="nav navbar-nav">
 	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="user">[user profile]</a></li>
@@ -51,81 +49,58 @@
 	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="trace">start tracing</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->    
-
 	      </div>
 	    </div>
+	    <!-- NAV END-->
 
-		<div style="padding-top:15%;"></div>
-		<div class="row" style="background-color:white; opacity:0.7;">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">  <!--style="background-color:white; opacity: 0.4;"-->
-					<h1><center>JEM Streamlined Cell-Tracer</center></h1>
+	    <!--Log in type: prof or student-->
+		<div class="row" style="background-color:white; opacity: 0.7;">
+			<div class="col-md-6">
+					<h1><center>Professors</center></h1>
+					<br>
+					<i><center><h4> 
+						Get your in-vitro cell images traced by dozens of students to ensure accuracy!
+						<br><br>
+						Easy as uploading an image and waiting for results!<br>
+					</h4></center></i>
+			</div>
+
+			
+			
+			<div class="col-md-6">
+					<h1><center>Students</center></h1>
+					<br>
+					<i><center><h4> 
+						Get course credit for tracing in-vitro cell images from your research lab!
+						<br><br>
+						Monitor your accuracy and completion levels against other students!<br>
+					</h4></center></i>
 			</div>
 		</div>	
-		<div class="row" style="background-color:white; opacity:0.7">
-					<div class="col-md-2"></div>
-					<div class="col-md-8">
-						<br><center><p> Developed by Stanford students, JEM Tracer is a platform for cell tracing to be crowdsourced. JEM streamlines the process of professors connecting to students to trace cells. </p>
-						</center>
-					</div>
+		<!-- end prof or student description-->
 
-		</div>
-		<br><br>
-		<center style="background-color:white; opacity:0.7">
-			<br>
-			<form action="">
-				<p style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"><i>Sign up to be updated on JEM Streamlined Cell-Tracer</i></p>
+		<br><br><br><br>
+		<!--SIGN IN w/ just email-->
+		<div class="row" style="background-color:white; opacity: 0.7;">
+			<div class="col-md-4"></div>
+			
+			<div class="col-md-4"><center>
+		      <form class="form-signin" role="form">
+		        <h2 class="form-signin-heading">Please sign in or<br> make a new account</h2>
+		        <input type="email" class="form-control" placeholder="Email address" required autofocus><br>
+		        <!--input type="password" class="form-control" placeholder="Password" required-->
+		        <!--label class="checkbox">
+		          <input type="checkbox" value="remember-me"> Remember me
+		        </label-->
+		        <!--button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button-->
+		        <button class="btn btn-default" type="submit">Sign in as professor</button>&nbsp;&nbsp;&nbsp;<button class="btn btn-default" type="submit">Sign in as student</button>
+		      </form>
+		      <br>
+		     </center></div>
 
-
-				<input id="email_form" type="text" placeholder="Email" style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;">
-
-
-				<a style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"><input type="submit" type="button" class="btn btn-default"> </p>
-
-				<style>
-					.valid{background-color:#D1FFD1;}
-					.invalid{background-color:red;}
-				</style>
-
-				<!--input type="submit"-->
-			</form>
-			<br>
-		</center>
-	
- 		
+	    </div> <!-- /container -->
+		 		
  
-		<!-- Firebase.js -->
-		<script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.2/firebase.js'></script>
- 
-		<!-- jQuery -->
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-		
-		<script>
-			var fb = new Firebase('https://jemtracing-signup.firebaseio.com');
- 
-			$('form').on('submit', function() {
-				var email_address = $('#email_form').val()
-				
-				if (validateEmail(email_address)) {
-					fb.child('emails').push(email_address)
-				};
-			})
-
-			$('#email_form').on('keyup', function() {
-				var test = $(this).val();
-
-				if (validateEmail(test)) {
-					$(this).addClass('valid');
-				} else {
-					$(this).removeClass('valid');				
-				}
-			})
- 
-			function validateEmail(email) { 
-			    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-			    return re.test(email);
-			} 
-		</script>
 		 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     	<script src="js/bootstrap.min.js"></script>
 </body>

@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>JEM Streamlined Cell Tracing</title>	
+	<title>JEM Streamlined Cell Tracing</title>		
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -33,7 +33,7 @@
 
 	        
 
-			<div class="collapse navbar-collapse pull-right">
+				<div class="collapse navbar-collapse pull-right">
 	          <ul class="nav navbar-nav">
 	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="user">[user profile]</a></li>
 	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="login">log in</a></li>
@@ -50,82 +50,20 @@
 
 	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="trace">start tracing</a></li>
 	          </ul>
-	        </div><!--/.nav-collapse -->    
+	        </div><!--/.nav-collapse -->   
 
 	      </div>
 	    </div>
-
-		<div style="padding-top:15%;"></div>
+	    <!--end navbar-->s
+	
 		<div class="row" style="background-color:white; opacity:0.7;">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">  <!--style="background-color:white; opacity: 0.4;"-->
-					<h1><center>JEM Streamlined Cell-Tracer</center></h1>
+					<h4><center>This page will appear for logged in prof's. It will allow prof's to upload a photo to a database and possibly select the student(s) who he or she wishes to trace the cells. </center></h4>
 			</div>
 		</div>	
-		<div class="row" style="background-color:white; opacity:0.7">
-					<div class="col-md-2"></div>
-					<div class="col-md-8">
-						<br><center><p> Developed by Stanford students, JEM Tracer is a platform for cell tracing to be crowdsourced. JEM streamlines the process of professors connecting to students to trace cells. </p>
-						</center>
-					</div>
-
-		</div>
-		<br><br>
-		<center style="background-color:white; opacity:0.7">
-			<br>
-			<form action="">
-				<p style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"><i>Sign up to be updated on JEM Streamlined Cell-Tracer</i></p>
-
-
-				<input id="email_form" type="text" placeholder="Email" style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;">
-
-
-				<a style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"><input type="submit" type="button" class="btn btn-default"> </p>
-
-				<style>
-					.valid{background-color:#D1FFD1;}
-					.invalid{background-color:red;}
-				</style>
-
-				<!--input type="submit"-->
-			</form>
-			<br>
-		</center>
-	
  		
  
-		<!-- Firebase.js -->
-		<script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.2/firebase.js'></script>
- 
-		<!-- jQuery -->
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-		
-		<script>
-			var fb = new Firebase('https://jemtracing-signup.firebaseio.com');
- 
-			$('form').on('submit', function() {
-				var email_address = $('#email_form').val()
-				
-				if (validateEmail(email_address)) {
-					fb.child('emails').push(email_address)
-				};
-			})
-
-			$('#email_form').on('keyup', function() {
-				var test = $(this).val();
-
-				if (validateEmail(test)) {
-					$(this).addClass('valid');
-				} else {
-					$(this).removeClass('valid');				
-				}
-			})
- 
-			function validateEmail(email) { 
-			    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-			    return re.test(email);
-			} 
-		</script>
 		 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     	<script src="js/bootstrap.min.js"></script>
 </body>

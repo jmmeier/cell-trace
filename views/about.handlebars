@@ -33,7 +33,7 @@
 
 	        
 
-			<div class="collapse navbar-collapse pull-right">
+				<div class="collapse navbar-collapse pull-right">
 	          <ul class="nav navbar-nav">
 	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="user">[user profile]</a></li>
 	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="login">log in</a></li>
@@ -50,83 +50,70 @@
 
 	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="trace">start tracing</a></li>
 	          </ul>
-	        </div><!--/.nav-collapse -->    
+	        </div><!--/.nav-collapse -->     
 
 	      </div>
 	    </div>
-
-		<div style="padding-top:15%;"></div>
-		<div class="row" style="background-color:white; opacity:0.7;">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">  <!--style="background-color:white; opacity: 0.4;"-->
-					<h1><center>JEM Streamlined Cell-Tracer</center></h1>
-			</div>
-		</div>	
-		<div class="row" style="background-color:white; opacity:0.7">
-					<div class="col-md-2"></div>
-					<div class="col-md-8">
-						<br><center><p> Developed by Stanford students, JEM Tracer is a platform for cell tracing to be crowdsourced. JEM streamlines the process of professors connecting to students to trace cells. </p>
-						</center>
-					</div>
-
-		</div>
-		<br><br>
-		<center style="background-color:white; opacity:0.7">
-			<br>
-			<form action="">
-				<p style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"><i>Sign up to be updated on JEM Streamlined Cell-Tracer</i></p>
-
-
-				<input id="email_form" type="text" placeholder="Email" style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;">
-
-
-				<a style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"><input type="submit" type="button" class="btn btn-default"> </p>
-
-				<style>
-					.valid{background-color:#D1FFD1;}
-					.invalid{background-color:red;}
-				</style>
-
-				<!--input type="submit"-->
-			</form>
-			<br>
-		</center>
 	
- 		
- 
-		<!-- Firebase.js -->
-		<script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.2/firebase.js'></script>
- 
-		<!-- jQuery -->
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		<!--Inspiration-->
+		<div class="row" style="background-color:white; opacity:0.7">
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+				<h1 class="pull-right">inspiration</h1><br><br><br><br>
+
+				<p> Stanford School of Medicine's Yang Lab in the Dept. of Orthopedic Surgery Lab is developing the ability of endothelial cells to form blood vessels in vitro, and as a result these researchers have to spend hours with Photoshop tracing cell culture images which are then processed by a Java library, imageJ, to count nodes, branches, and the general quantitative analysis of the ability of endothelial cells to form tube like structures of vessels.</p>
+
+				<p> Because this lab has six different project students who trace cells, the tracing of cells are highly differentiated as many of the students have slightly different qualifications for where they should and should not trace a cluster of cells. Therefore, because of this lack of uniformity in the tracing, the results are less consistent and, perhaps, less precise. </p>
+
+				<p> We believe the process of tracing a cell image in vitro should not take 3 hours.  </p>
+
+			</div>
+		</div>
+		<br> <br>
+		<!--The Team-->
+		<div class="row" style="background-color:white; opacity:0.7">
+			<div class="col-md-1"></div>
+			<div class="col-md-10">
+				<!--p class="pull-left" style="font-size:32"> meet the team </p-->
+				<h1>meet the team</h1>
+			</div>
+			<div class="col-md-1"></div>
+		</div>
 		
-		<script>
-			var fb = new Firebase('https://jemtracing-signup.firebaseio.com');
- 
-			$('form').on('submit', function() {
-				var email_address = $('#email_form').val()
-				
-				if (validateEmail(email_address)) {
-					fb.child('emails').push(email_address)
-				};
-			})
+		<div class="row" style="background-color:white; opacity:0.7">
+			<center>
+			<div class="col-md-2"></div>
+			
+			<div class="col-md-3">
+				<center>
+					<br>
+					<p><b> Justin Meier</b> </p>
+					<img src="../images/justin.png" class="img-thumbnail">
+					<p> <br> Justin is studying Artificial Intelligence in Computer Science and Psychology.</p>
+				</center>
+			</div>
+			
+			<div class="col-md-3">
+				<center>
+					<br>
+					<p> <b> Miraj Rahematpura </b> </p>
+					<img src="../images/miraj.png" class="img-thumbnail">
+					<p> <br> Miraj is studying Human Computer Interaction in Computer Science.</p>
+				</center>
+			</div>
+			
+			<div class="col-md-3">
+				<center>
+					<br>
+					<p> <b> Lissette Valenzuela </b> </p>
+					<img src="../images/lissette.png" class="img-thumbnail">
+					<p> <br> Lissette is studying Human Computer Interaction in Computer Science and Architecture.</p>
+				</center>
+			</div>
+			</center>
+		</div>
 
-			$('#email_form').on('keyup', function() {
-				var test = $(this).val();
-
-				if (validateEmail(test)) {
-					$(this).addClass('valid');
-				} else {
-					$(this).removeClass('valid');				
-				}
-			})
- 
-			function validateEmail(email) { 
-			    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-			    return re.test(email);
-			} 
-		</script>
-		 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-    	<script src="js/bootstrap.min.js"></script>
+	 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
 </body>
 </html>

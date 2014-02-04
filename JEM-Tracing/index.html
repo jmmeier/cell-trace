@@ -1,0 +1,160 @@
+<html>
+	<head>
+		<title>JEM Tracer</title>
+		
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/bootstrap-theme.min.css" rel="stylesheet">
+		<link href="css/jem-tracer.css" rel="stylesheet">
+		
+	</head>
+	<body>
+	
+		<style>
+		
+			
+			body {
+			    /*.font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;*/
+			    font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+				background-image: url('background.png');
+			    background-size:100% 100%;
+				/*background-repeat:no-repeat;*/
+				padding-top:25%;
+			}
+
+			*{
+			     font-size: 100%;
+			     *font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;
+			     /*font-family: 'HelveticaNeue-UltraLight', 'Helvetica Neue UltraLight', 'Helvetica Neue', Arial, Helvetica, sans-serif;*/
+			}
+
+			/*#email_form{margin-left: 45%;}*/
+
+			
+
+		</style>
+
+		
+		<!-- Fixed navbar -->
+		
+	    <!--div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;" href="index.html"><font color="white">JEM Tracer</font></a>
+	        </div>
+	        
+	        <div class="navbar-collapse">
+	          <ul class="nav navbar-nav">
+	            <li></li>
+	            <li><a class="navbar-brand" style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="about.html"><font color="white">about us</font></a></li>
+	          </ul>
+	        </div>
+	      </div>
+	    </div-->
+
+	   <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"  href="index.html">JEM Tracer</a>
+	        </div>
+	        <div class="collapse navbar-collapse pull-right">
+	          <ul class="nav navbar-nav">
+	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="about.html">about us</a></li>
+	          </ul>
+	        </div><!--/.nav-collapse -->
+	      </div>
+	    </div>
+
+	
+		<div class="row" style="background-color:white; opacity:0.7">
+			<div class="col-md-2"></div>
+			<div class="col-md-8">  <!--style="background-color:white; opacity: 0.4;"-->
+				<center style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;">
+					<p style="font-size:32">JEM Tracer</p>
+					<p> Developed by Stanford students, JEM Tracer automatically traces a cluster of cell branches. </p> 
+
+					<p> JEM Tracer saves the hours spent tracing by hand and delivers a more accurate trace in a few seconds. </p>
+
+					<p> Alpha versions of JEM Tracer are being tested by lab assistants at the Stanford School of Medicine's Yang Lab in the Dept. of Orthopaedic Surgery to research the ability of endothilial cells to aggregate into blood vessel precursors. </p>
+
+				</center>
+			</div>
+			<div class="col-md-2"></div>
+		</div>
+		<br><br>
+		<center style="background-color:white; opacity:0.7">
+			<br>
+			<form action="">
+				<p style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"><i>Sign up to be an alpha tester of JEM Tracer</i></p>
+
+
+				<input id="email_form" type="text" placeholder="Email" style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;">
+
+
+				<a style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"><input type="submit" type="button" class="btn btn-default"> </p>
+
+				<style>
+					.valid{background-color:#D1FFD1;}
+					.invalid{background-color:red;}
+				</style>
+
+				<!--input type="submit"-->
+			</form>
+			<br>
+		</center>
+	
+ 		
+ 
+		<!-- Firebase.js -->
+		<script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.2/firebase.js'></script>
+ 
+		<!-- jQuery -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+		
+		<script>
+			var fb = new Firebase('https://jemtracing-signup.firebaseio.com');
+ 
+			$('form').on('submit', function() {
+				var email_address = $('#email_form').val()
+				
+				if (validateEmail(email_address)) {
+					fb.child('emails').push(email_address)
+				};
+			})
+
+			$('#email_form').on('keyup', function() {
+				var test = $(this).val();
+
+				if (validateEmail(test)) {
+					$(this).addClass('valid');
+				} else {
+					$(this).removeClass('valid');				
+				}
+			})
+ 
+			function validateEmail(email) { 
+			    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+			    return re.test(email);
+			} 
+		</script>
+		 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+    	<script src="js/bootstrap.min.js"></script>
+	</body>
+</html>
