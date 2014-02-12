@@ -2,7 +2,7 @@
 
 <html>
 <head>
-	<title>JEM Streamlined Cell Tracing</title>		
+	<title>JEM Streamlined Cell Tracing</title>	
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="/css/bootstrap.min.css" rel="stylesheet">
@@ -29,11 +29,9 @@
 	            <span class="icon-bar"></span>
 	          </button>
 	          <a class="navbar-brand" style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"  href="/">JEM Tracer I</a>
-	        </div>
+	        </div>	        
 
-	        
-
-				<div class="collapse navbar-collapse pull-right">
+			<div class="collapse navbar-collapse pull-right">
 	          <ul class="nav navbar-nav">
 	            <li><a href="user">[user profile]</a></li>
 	            <li><a href="login">log in</a></li>
@@ -46,25 +44,49 @@
 
 				 <li><a href="upload">upload picture</a></li>
 
-				  <li><a href="results">results</a></li>
-
 	            <li><a href="trace">start tracing</a></li>
 	          </ul>
-	        </div><!--/.nav-collapse -->   
+	        </div><!--/.nav-collapse -->  
 
 	      </div>
 	    </div>
-	    <!--end navbar-->s
+
+	    <!--end navbar-->
 	
-		<div class="row" style="background-color:white; opacity:0.7;">
-			<div class="col-md-2"></div>
-			<div class="col-md-8">  <!--style="background-color:white; opacity: 0.4;"-->
-					<h4><center>This page will appear for logged in prof's. It will allow prof's to upload a photo to a database and possibly select the student(s) who he or she wishes to trace the cells. </center></h4>
+		<dic class="row" style="background-color:white; opacity:0.7;"> 
+			
+			<form id="addTracerForm" role="form" method="get" action="/addTracer" style="background-color:white; opacity:0.7; padding:10px">
+				<h3>Sign Up</h3>
+			    <div class="form-group">
+			      <label for="name">Name:</label>
+			      <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+			    </div>
+			    <div class="form-group">
+			      <label for="description">Description:</label>
+			      <input type="text" class="form-control" id="description" placeholder="Description" name="description">
+			    </div>
+			    <input type="submit" id="submitBtn" class="btn btn-default" value="Sign Up"></input>
+			</form>
+		</div>
+	
+		<br> <br> 
+		<div class="row" style="background-color:white; opacity:0.7; padding:10px">
+			<div class="col-md-1"></div>
+			<div class="col-md-10">  <!--style="background-color:white; opacity: 0.4;"-->
+				<h3> or Sign In by clicking on your profile... </h3>	
+				{{#each tracers}}
+					<div class="tracer col-md-4">
+		       			<img src="{{imageURL}}">
+		        		<h3><a class="tracer-name" href="#">{{name}}</a></h3>
+		        		<p>{{description}}</p>
+			    	</div>
+		    	{{/each}}
+
 			</div>
+			<div class="col-md-1"></div>
 		</div>	
- 		
- 
-		 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+	
+		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

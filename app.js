@@ -16,6 +16,8 @@ var results = require('./routes/results');
 var trace = require('./routes/trace');
 var user = require('./routes/user');
 var login = require('./routes/login');
+var tracer = require('./routes/tracer');
+var prof = require('./routes/prof')
 
 // Example route
 // var user = require('./routes/user');
@@ -51,6 +53,8 @@ app.get('/results', results.viewResults);
 app.get('/trace', trace.viewTrace);
 app.get('/user', user.viewUser);
 app.get('/login', login.viewLogin);
+app.get('/tracer', tracer.viewTracer);
+app.get('/prof', prof.viewProf);
 
 //app.get('/project', project.viewProject);
 // Example route

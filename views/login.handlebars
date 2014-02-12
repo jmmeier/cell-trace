@@ -28,25 +28,25 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
 	          </button>
-	          <a class="navbar-brand" style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"  href="/">JEM Tracer I</a>
+	          <a class="navbar-brand" href="/">JEM Tracer I</a>
 	        </div>
 
 			<div class="collapse navbar-collapse pull-right">
 	          <ul class="nav navbar-nav">
-	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="user">[user profile]</a></li>
-	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="login">log in</a></li>
+	            <li><a href="user">[user profile]</a></li>
+	            <li><a href="login">log in</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->
 
 			<div class="collapse navbar-collapse">
 	          <ul class="nav navbar-nav">
-	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="about">about</a></li>
+	            <li><a href="about">about</a></li>
 
-				 <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="upload">upload picture</a></li>
+				 <li><a href="upload">upload picture</a></li>
 
-				  <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="results">results</a></li>
+				  <li><a href="results">results</a></li>
 
-	            <li><a style="font-family: HelveticaNeue-UltraLight, Helvetica Neue UltraLight, Helvetica Neue, Arial, Helvetica, sans-serif;" href="trace">start tracing</a></li>
+	            <li><a href="trace">start tracing</a></li>
 	          </ul>
 	        </div><!--/.nav-collapse -->    
 	      </div>
@@ -85,6 +85,8 @@
 			<div class="col-md-4"></div>
 			
 			<div class="col-md-4"><center>
+		      
+
 		      <form class="form-signin" role="form">
 		        <h2 class="form-signin-heading">Please sign in or<br> make a new account</h2>
 		        <input type="email" class="form-control" placeholder="Email address" required autofocus><br>
@@ -95,13 +97,27 @@
 		        <!--button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button-->
 		        <button class="btn btn-default" type="submit">Sign in as professor</button>&nbsp;&nbsp;&nbsp;<button class="btn btn-default" type="submit">Sign in as student</button>
 		      </form>
+
+				<form id="addFriendForm" role="form" method="get" action="/add">
+					<h3>Add a friend</h3>
+				    <div class="form-group">
+				      <label for="name">Name:</label>
+				      <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+				    </div>
+				    <input type="submit" id="submitBtn" class="btn btn-default" value="Add the friend"></input>
+				</form>
+
 		      <br>
 		     </center></div>
 
 	    </div> <!-- /container -->
+
+
+
+		
 		 		
  
-		 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>

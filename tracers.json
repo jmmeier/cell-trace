@@ -1,0 +1,23 @@
+{
+	"tracers": [
+		{
+			"name": "Emeline W.",
+			"description": "Sophomore at Stanford studying Biocomp",
+			"imageURL": "http://placekitten.com/300/300",
+			"profile-link": "emeline"
+		},
+		{
+			"name": "Zach T.",
+			"description": "Addicted to Monster; Stanford sophomore studying humbio",	
+			"imageURL": "http://placekitten.com/300/300",
+			"profile-link": "#"	
+		},
+		{
+			"name": "Elisha M.",
+			"description": "Stanford studying I.R.",
+			"imageURL": "http://placekitten.com/300/300",
+			"profile-link": "#"			
+		}
+	]
+}
+
