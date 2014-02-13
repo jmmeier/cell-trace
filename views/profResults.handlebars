@@ -32,15 +32,15 @@
 	        </div>
 				<div class="collapse navbar-collapse pull-right">
 		          <ul class="nav navbar-nav">
-		          	<li><a href="prof">Sign in as a Professor</a></li>
 		            <!--li><a href="user">[user profile]</a></li>
 		            <li><a href="login">log in</a></li-->
+		            <li><a href="tracer">Sign in as a Tracer/Student</a></li>
 		          </ul>
 		        </div><!--/.nav-collapse -->
 
 			<div class="collapse navbar-collapse">
 	          <ul class="nav navbar-nav">
-	            <li class="active"><a href="profResults">start tracing</a></li>
+	            <li class="active"><a href="profResults">upload cell image/view results</a></li>
 	            <li><a href="#"></a></li>
 
 				 <!--li><a href="upload">upload picture</a></li>
@@ -57,20 +57,16 @@
 	
 		
 		
-		<a href="emeline"><input type="submit" id="submitBtn" class="btn btn-default" value="Back to my profile" style="margin-left:10px"></input></a>
+		<a href="prof"><input type="submit" id="submitBtn" class="btn btn-default" value="Back to list of professors" style="margin-left:10px"></input></a>
 		<br><br>
 
 		
 		<dic class="row" style="background-color:white; opacity:0.7;"> 	
-			<form id="addTracedForm" role="form" method="get" action="/addCell" style="background-color:white; opacity:0.7; padding:10px">
-				<h3>Add new traced image</h3>
+			<form id="addUntracedForm" role="form" method="get" action="/addCell" style="background-color:white; opacity:0.7; padding:10px">
+				<h3>Add new untraced image</h3>
 			    <div class="form-group">
 			      <label for="untraced">URL:</label>
 			      <input type="text" class="form-control" id="untraced" placeholder="URL to untraced image (.jpg or .png)" name="untraced">
-			    </div>
-			    <div class="form-group">
-			      <label for="traced">URL:</label>
-			      <input type="text" class="form-control" id="traced" placeholder="URL to traced image (.jpg or .png)" name="traced">
 			    </div>
 			    
 			    <input type="submit" id="submitBtn" class="btn btn-default" value="Add cell"></input>
@@ -79,16 +75,19 @@
 
 
 			  <!--style="background-color:white; opacity: 0.4;"-->
-		<h1 style="margin-left:20px"> Untraced cells to be traced </h1>
+		<h1 style="margin-left:20px"> Traces </h1>
 		{{#each cells}}
 			<div class="row" style="background-color:white; opacity:0.7;">
 				<div class="col-md-1"></div>
 				
 				<div class="cell col-md-4">
 	       			<h2> Untraced Cell </h2> <img src="{{untraced}}">
-	       			<h6> <a href="{{untraced}}" target="_blank"> Link </a>
+	       			<h6> <a href="{{untraced}}"> Link </a>
 		    	</div>
-		    	
+		    	<div class="cell col-md-4">
+	       			<h2> Traced Cell </h2> <img src="{{traced}}">
+	       			<h6> <a href="{{traced}}" target="_blank"> Link </a>
+		    	</div>
 			</div>	
 			<br><br>
     	{{/each}}

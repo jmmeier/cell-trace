@@ -1,0 +1,23 @@
+{
+	"profs": [
+		{
+			"name": "Prof. Yang",
+			"description": "Prof of Bio",
+			"imageURL": "http://placekitten.com/300/300",
+			"profile-link": "yang"
+		},
+		{
+			"name": "Prof. Vue",
+			"description": "Super awesome at product design",	
+			"imageURL": "http://placekitten.com/300/300",
+			"profile-link": "#"	
+		},
+		{
+			"name": "S. Lape",
+			"description": "Likes rollerblading",
+			"imageURL": "http://placekitten.com/300/300",
+			"profile-link": "#"			
+		}
+	]
+}
+

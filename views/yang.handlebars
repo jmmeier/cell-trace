@@ -19,7 +19,7 @@
 </head>
 
 <body>
-	  <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+	   <div class="navbar navbar-inverse navbar-static-top" role="navigation">
 	      <div class="container">
 	        <div class="navbar-header">
 	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -30,21 +30,17 @@
 	          </button>
 	          <a class="navbar-brand" style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"  href="/">JEM Tracer I</a>
 	        </div>
-
-	        
-
 				<div class="collapse navbar-collapse pull-right">
 		          <ul class="nav navbar-nav">
-		            <!--li><a href="user">[user profile]</a></li>
-		            <li><a href="login">log in</a></li-->
-		            <li><a href="prof">Sign in as a Professor</a></li>
+		            <li><a href="tracer">Sign in as a Tracer/Student</a></li>
+		            <!--li><a href="login">log in</a></li-->
 		          </ul>
 		        </div><!--/.nav-collapse -->
 
 			<div class="collapse navbar-collapse">
 	          <ul class="nav navbar-nav">
-	            <!--li><a href="#">getting started</a></li>
-	            <li><a href="#">start tracing</a></li-->
+	            <li><a href="profResults">upload cell image/view results</a></li>
+	            <li><a href="#"></a></li>
 
 				 <!--li><a href="upload">upload picture</a></li>
 
@@ -58,40 +54,33 @@
 	    </div>
 
 	    <!--end navbar-->
-	    <h1> Tracer (Student) Log-In </h1>
-		<a href="/"><input type="submit" id="submitBtn" class="btn btn-default" value="Back to Main Menu" style="margin-left:10px"></input></a>
-		<br><br>
-		<dic class="row" style="background-color:white; opacity:0.7;"> 
-			
-			<form id="addTracerForm" role="form" method="get" action="/addTracer" style="background-color:white; opacity:0.7; padding:10px">
-				<h3>Sign Up</h3>
-			    <div class="form-group">
-			      <label for="name">Name:</label>
-			      <input type="text" class="form-control" id="name" placeholder="Name" name="name">
-			    </div>
-			    <div class="form-group">
-			      <label for="description">Description:</label>
-			      <input type="text" class="form-control" id="description" placeholder="Description" name="description">
-			    </div>
-			    <input type="submit" id="submitBtn" class="btn btn-default" value="Sign Up"></input>
-			</form>
-		</div>
 	
-		<br> <br> 
-		<div class="row" style="background-color:white; opacity:0.7; padding:10px">
-			<div class="col-md-1"></div>
-			<div class="col-md-10">  <!--style="background-color:white; opacity: 0.4;"-->
-				<h3> or Sign In by clicking on your profile... </h3>	
-				{{#each tracers}}
-					<div class="tracer col-md-4">
-		       			<img src="{{imageURL}}">
-		        		<h3><a class="tracer-name" href="{{profile-link}}">{{name}}</a></h3>
-		        		<p>{{description}}</p>
-			    	</div>
-		    	{{/each}}
+		<!-- back to list of profs -->
+		<a href="prof"><input type="submit" id="submitBtn" class="btn btn-default" value="Back to list of professors" style="margin-left:10px; margin-bottom: 20px"></input></a>
 
-			</div>
+
+
+		<!-- PROFILE -->
+
+		<div class="row" style="background-color:white; opacity:0.7;">
 			<div class="col-md-1"></div>
+			<a href="profResults"><input type="submit" id="submitBtn" class="btn btn-default" value="Upload cells/view results" style="margin-left:10px"></input></a>
+		</div>
+
+		<div class="row" style="background-color:white; opacity:0.7;">
+			<div class="col-md-1"></div>
+			<div class="col-md-3">
+				<h1> Prof. Yang </h1>
+				<img src="http://placekitten.com/300/300">
+			</div>
+		</div>
+		<div class="row" style="background-color:white; opacity:0.7;">
+			<div class="col-md-1"></div>
+			<div class="col-md-8">  <!--style="background-color:white; opacity: 0.4;"-->
+				<h3> Description </h3> <p> Prof of Bio </p>
+				<h3> Research </h3> <p> Making blood cells out of endothelial cells </p>
+				<h3>  </h3> <p> </p>
+			</div>
 		</div>	
 	
 		<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
