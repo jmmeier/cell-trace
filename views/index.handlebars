@@ -41,6 +41,7 @@
 			<div class="collapse navbar-collapse">
 	          <ul class="nav navbar-nav">
 	            <li><a href="about">about</a></li>
+	            <!--li><a href="tracingInterface">tracing interface</a></li-->
 
 				 <!--li><a href="upload">upload picture</a></li>
 
@@ -53,13 +54,13 @@
 	    <!-- END NAVBAR -->
 
 		<div style="padding-top:15%;"></div>
-		<div class="row" style="background-color:white; opacity:0.7;">
+		<div class="row" style="background-color:white; opacity:1.0;">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">  <!--style="background-color:white; opacity: 0.4;"-->
 					<h1><center>JEM Streamlined Cell-Tracer</center></h1>
 			</div>
 		</div>	
-		<div class="row" style="background-color:white; opacity:0.7">
+		<div class="row" style="background-color:white; opacity:1.0">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				<br><center><p> Developed by Stanford students, JEM Tracer is a platform for cell tracing to be crowdsourced. JEM streamlines the process of professors connecting to students to trace cells. </p>
@@ -68,31 +69,30 @@
 		</div>
 		<br><br>
 
-		<div class="row" style="background-color:white; opacity:0.7;">
+		<div class="row" style="background-color:white; opacity:1.0;">
 			<div class="col-md-2"></div>
 			<div class="col-md-8">  <!--style="background-color:white; opacity: 0.4;"-->
-					<h3><center>Enter the site:</center></h3>
+					<h3><center>Get started:</center></h3>
 			
 			<div class="col-md-2"></div>
 			<div class="col-md-8">
 				<center>
 
-					<a href="tracer">						
+					<a href="tracingInterface">						
 						<button type="button" class="btn btn-default btn-lg">
-							Tracer (Student)
+							Start Tracing <br>(Student)
 						</button>
 					</a>
 
 					<a href="prof">
 						<button type="button" class="btn btn-default btn-lg">
-							Professor
+							Upload/View Photos <br> (Professor)
 						</button>
 					</a>
 
 				</center>
+				<br>
 			</div>
-
-			<div style="margin-bottom:10%"> </div>
 		</div>
 		
 
@@ -100,11 +100,10 @@
 		<!--center style="background-color:white; opacity:0.7">
 			<br>
 			<form action="">
-				<p style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"><i>Sign up to be updated on JEM Streamlined Cell-Tracer</i></p>
 
-				<input id="email_form" type="text" placeholder="Email" style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;">
+				<input id="email_form" type="text" placeholder="Email">
 
-				<a style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"><input type="submit" type="button" class="btn btn-default"> </p>
+				<a><input type="submit" type="button" class="btn btn-default"> </p>
 
 				<style>
 					.valid{background-color:#D1FFD1;}
@@ -151,5 +150,11 @@
 		</script>
 		 <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
     	<script src="js/bootstrap.min.js"></script>
+    	<script src="js/jquery-1.11.0.js"></script>
+		<script src="https://code.jquery.com/jquery.js"></script>
+    	<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript" src="raphael.min.js"></script>
+		<script type="text/javascript" src="json2.min.js"></script>
+		<script type="text/javascript" src="raphael.sketchpad.js"></script>
 </body>
 </html>

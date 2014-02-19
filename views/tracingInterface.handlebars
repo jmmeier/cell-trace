@@ -1,0 +1,272 @@
+<!doctype html>
+
+<html>
+<head>
+	<title>JEM Streamlined Cell Tracing</title>	
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/css/bootstrap.min.css" rel="stylesheet">
+	<link href="/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="/css/introHCI.css" rel="stylesheet">
+	<!-- this is a comment in HTML -->
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->  
+
+	<style type="text/css">
+		body {
+			background:white;
+		}
+
+		a,
+		a:hover,
+		a:visited {
+			color:#1D72C2;
+		}
+		#hd {
+			margin-top:40px;
+		}
+			#hd h1 {
+				font-weight:bold;
+				letter-spacing:-0.05em;
+			}
+			#hd a#download {
+				display:block;
+				padding:5px;
+				font-size:24px;
+				font-weight:bold;
+				text-align:center;
+				text-decoration:none;
+				background-color:#D4ECFF;
+				border:1px solid #57B6FF;
+			}
+		#bd {
+			margin-bottom:40px;
+		}
+			#bd h2,
+			#bd h3 {
+				font-weight:bold;
+				letter-spacing:-0.05em;
+			}
+
+			#bd pre.code {
+				margin-top:0;
+				padding:5px;
+				background-color:#eee;
+			}
+			#bd .sample {
+				float:right;
+				margin-left:10px;
+			}
+			#bd div.widget {
+				background-color:#ffc;
+				border:1px solid #ccc;
+			}
+			/* Reference section */
+			#bd .reference code {
+				margin:0 10px;
+			}
+
+			.widget_actions div {
+				cursor:pointer;
+				margin:4px 0 0;
+				color:#1D72C2;
+				background-color:#D4ECFF;
+				border:1px solid #57B6FF;
+				text-align:center;
+				text-decoration:none;
+			}
+				.widget_actions div.disabled {
+					text-decoration:none;
+					color:#666;
+					background-color:#eee;
+					border:1px solid #ccc;
+				}
+				.widget_actions div.selected {
+					font-weight:bold;
+				}
+				.widget_actions div._title {
+					cursor:default;
+					color:#666;
+					background-color:transparent;
+					border-color:transparent;
+				}
+	</style>
+
+	<!-- Javascripts -->
+	<script type="text/javascript" src="js/raphael-2.0.1.js"></script>
+	<script type="text/javascript" src="js/json2.min.js"></script>
+	<script type="text/javascript" src="js/raphael.sketchpad.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+</head>
+
+<body>
+	   <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+	      <div class="container">
+	        <div class="navbar-header">
+	          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	            <span class="sr-only">Toggle navigation</span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	            <span class="icon-bar"></span>
+	          </button>
+	          <a class="navbar-brand" style="font-family: Avant Garde, Avantgarde, Century Gothic, CenturyGothic, AppleGothic, sans-serif;"  href="/">JEM Tracer I</a>
+	        </div>	        
+
+			<div class="collapse navbar-collapse pull-right">
+	          <ul class="nav navbar-nav">
+	            <!--li><a href="user">[user profile]</a></li>
+	            <li><a href="login">log in</a></li-->
+	          </ul>
+	        </div><!--/.nav-collapse -->
+
+			<div class="collapse navbar-collapse">
+	          <ul class="nav navbar-nav">
+	            <li><a href="about">about</a></li>
+
+	            <li class="active"><a href="tracingInterface">tracing interface</a></li>
+
+				 <!--li><a href="upload">upload picture</a></li>
+
+	            <li><a href="trace">start tracing</a></li-->
+	          </ul>
+	        </div><!--/.nav-collapse -->  
+
+	      </div>
+	    </div>
+	    <!-- END NAVBAR -->
+
+		<script type="text/javascript">
+			$(document).ready(function() {
+
+				var sketchpad = Raphael.sketchpad("editor", {
+					height: $('container').height(),
+					width: $('container').width(),
+					editing: true	// true is default
+				});
+
+				// When the sketchpad changes, update the input field.
+				sketchpad.change(function() {
+					$("#data2").val(sketchpad.json());
+				});
+
+				/*sketchpad.strokes([{
+					"type":"path",
+					"path":[["M",10,10],["L",90,90]],
+					"fill":"none",
+					"stroke":"#000000",
+					"stroke-opacity":1,
+					"stroke-width":5,
+					"stroke-linecap":"round",
+					"stroke-linejoin":"round"
+				}]);*/
+
+				function enable(element, enable) {
+					if (enable) {
+						$(element).removeClass("disabled");
+					} else {
+						$(element).addClass("disabled");
+					}
+				};
+
+				function select(element1, element2) {
+					$(element1).addClass("selected");
+					$(element2).removeClass("selected");
+				}
+
+				$("#editor_undo").click(function() {
+					sketchpad.undo();
+				});
+				$("#editor_redo").click(function() {
+					sketchpad.redo();
+				});
+				$("#editor_clear").click(function() {
+					sketchpad.clear();
+				});
+				$("#editor_animate").click(function() {
+					sketchpad.animate();
+				});
+
+				$("#editor_thin").click(function() {
+					select("#editor_thin", "#editor_thick");
+					sketchpad.pen().width(5);
+				});
+				$("#editor_thick").click(function() {
+					select("#editor_thick", "#editor_thin");
+					sketchpad.pen().width(15);
+				});
+				$("#editor_solid").click(function() {
+					select("#editor_solid", "#editor_fuzzy");
+					sketchpad.pen().opacity(1);
+				});
+				$("#editor_fuzzy").click(function() {
+					select("#editor_fuzzy", "#editor_solid");
+					sketchpad.pen().opacity(0.3);
+				});
+				$("#editor_black").click(function() {
+					select("#editor_black", "#editor_red");
+					sketchpad.pen().color("#000");
+				});
+				$("#editor_red").click(function() {
+					select("#editor_red", "#editor_black");
+					sketchpad.pen().color("#f00");
+				});
+				$("#editor_draw_erase").toggle(function() {
+					$(this).text("Erase");
+					sketchpad.editing("erase");
+				}, function() {
+					$(this).text("Draw");
+					sketchpad.editing(true);
+				});
+
+				function update_actions() {
+					enable("#editor_undo", sketchpad.undoable());
+					enable("#editor_redo", sketchpad.redoable());
+					enable("#editor_clear", sketchpad.strokes().length > 0);
+				}
+
+				sketchpad.change(update_actions);
+
+				update_actions();
+			});
+		</script>
+	
+			
+			<div id="editor" style="border: 1px solid #aaa; height:400px; background-image:url(http://farm4.staticflickr.com/3666/12629338004_5fcaa2bdc6_o.png); background-repeat: no-repeat;" class="widget"></div
+
+			<input type="hidden" id="data2" name="data2" />
+			
+
+			<form action="save.php" method="post">
+				<input type="hidden" name="data" />
+				<input type="submit" value="Save" />
+			</form>
+
+	
+			<div class="clear widget_actions">
+				<div class="_title">Color</div>
+				<div id="editor_black" class="selected">Black</div>
+				<div id="editor_red">Red</div>
+			</div>
+	
+			<div class="widget_actions span-2 last">
+				<div id="editor_undo" class="disabled">Undo</div>
+				<div id="editor_redo" class="disabled">Redo</div>
+				<div id="editor_clear" class="disabled">Clear</div>
+			</div>
+
+			<div class="clear"></div>
+			
+		
+		<!--script src="https://code.jquery.com/jquery-1.10.2.min.js"></script-->
+    	<script src="js/bootstrap.min.js"></script>
+    	<!--script src="js/jquery-1.11.0.js"></script-->
+		<!--script src="https://code.jquery.com/jquery.js"></script-->		
+
+</body>
+</html>
